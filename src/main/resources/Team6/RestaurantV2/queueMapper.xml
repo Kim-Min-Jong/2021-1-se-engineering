@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Team6.RestaurantV2.mapper.QueueMapper">
+    <select id="getQueue" resultType="Team6.RestaurantV2.domain.Queue"> SELECT * FROM queue </select>
+<insert id="insertQueue" parameterType="Team6.RestaurantV2.domain.Queue">
+        INSERT INTO queue VALUES (#{cusId}, #{reservation_oid})
+    </insert>
+    
+    
+    <delete id="deleteQueue" parameterType="Integer">
+        DELETE FROM queue WHERE reservation_oid = #{reservation_oid}
+    </delete>
+    
+   
+</mapper>

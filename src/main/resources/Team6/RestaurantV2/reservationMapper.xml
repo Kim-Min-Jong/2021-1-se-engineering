@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Team6.RestaurantV2.mapper.ReservationMapper">
+    <select id="selectReservation" resultType="Team6.RestaurantV2.domain.Reservation"> SELECT * FROM reservation </select>
+    
+     <insert id="insertReservation" parameterType="Team6.RestaurantV2.domain.Reservation">
+        INSERT INTO reservation VALUES (${oid}, #{name}, #{phoneNumber}, ${covers}, #{date}, #{arrivalTime})
+    </insert>
+    
+    <update id="updateReservation" parameterType="Team6.RestaurantV2.domain.Reservation">
+        UPDATE reservation 
+        SET date = #{date}, arrivalTime = #{arrivalTime}, covers = ${covers} 
+        WHERE oid = ${oid}
+    </update>
+    
+
+    
+    <delete id="deleteReservation" parameterType="Team6.RestaurantV2.domain.Reservation">
+        DELETE FROM reservation WHERE oid = #{oid}
+    </delete>
+    
+    
+    <select id="selectOneReservation" resultType="Team6.RestaurantV2.domain.Reservation">
+        SELECT * FROM reservation WHERE oid = #{oid}
+    </select> 
+
+
+
+
+</mapper>
+

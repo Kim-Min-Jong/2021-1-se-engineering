@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Team6.RestaurantV2.mapper.CustomerMapper">
+    <select id="selectCustomer" resultType="Team6.RestaurantV2.domain.Customer"> SELECT * FROM customer </select>
+    
+    <insert id="insertCustomer" parameterType="Team6.RestaurantV2.domain.Customer">
+        INSERT INTO customer VALUES (#{oid}, #{name}, #{phoneNumber})
+    </insert>
+    
+    <update id="updateCustomer" parameterType="Team6.RestaurantV2.domain.Customer">
+        UPDATE customer 
+        SET name = #{name}, phoneNumber = #{phoneNumber} 
+        WHERE oid = #{oid}
+    </update>
+    
+    <delete id="deleteCustomer" parameterType="Integer">
+        DELETE FROM customer WHERE oid = #{oid}
+    </delete>
+    
+    <select id="selectOneCustomer" parameterType="Integer" resultType="Team6.RestaurantV2.domain.Customer">
+        SELECT * FROM customer WHERE oid = #{oid}
+    </select>
+   
+    
+</mapper> 
